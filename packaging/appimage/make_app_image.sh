@@ -8,7 +8,7 @@ MC_NAME=Miniconda3-latest-Linux-x86_64.sh
 cd AppDir || exit 1
 HERE=$(dirname "$(readlink -f "${0}")")
 
-bash ../../$MC_NAME -b -p ./usr || exit 1
+bash ../$MC_NAME -b -p ./usr || exit 1
 PATH="${HERE}"/usr/bin:$PATH
 # conda config --add channels conda-forge
 conda create -n libertem python=3.6 -y || exit 1
@@ -25,9 +25,9 @@ cp "${BASE_DIR}/corporatedesign/logo/LiberTEM logo icon-512.png" ./libertem-icon
 
 cat > ./AppRun <<\EOF
 #!/bin/sh
-HERE=$(dirname $(readlink -f "${0}"))
-export PATH="${HERE}"/conda/bin:$PATH
-libertem-server $*
+HERE=$(dirname "$(readlink -f "${0}")")
+export PATH="${HERE}"/usr/bin:$PATH
+libertem-server "$@"
 EOF
 
 chmod a+x ./AppRun
