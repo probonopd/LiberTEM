@@ -38,6 +38,7 @@ cat > ./LiberTEM.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Terminal=true
+Comment=Framework for scanning transmission electron microscopy (STEM)
 Name=LiberTEM
 Icon=libertem
 Exec=LiberTEM %u
