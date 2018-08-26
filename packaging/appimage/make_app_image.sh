@@ -17,11 +17,13 @@ conda create -n libertem python=3.6 -y || exit 1
 # Build wheel
 ( cd "$BASE_DIR" ; python setup.py bdist_wheel )
 
-pip install "$BASE_DIR"/dist/*.whl || exit 1
+mkdir -p ./share/icons/hicolor/
 
-rm -rf ./usr/pkgs/
+cp -r "${BASE_DIR}/corporatedesign/logo/icons/"* ./share/icons/hicolor/
 
-cp "${BASE_DIR}/corporatedesign/logo/LiberTEM logo icon-512.png" ./libertem-icon-512.png
+cd .. || exit 1
+
+cp "${BASE_DIR}/corporatedesign/logo/icons/512x512/apps/libertem.png" .
 
 cat > ./AppRun <<\EOF
 #!/bin/sh
@@ -39,7 +41,7 @@ cat > ./LiberTEM.desktop <<EOF
 Type=Application
 Terminal=true
 Name=LiberTEM
-Icon=libertem-icon-512
+Icon=libertem
 Exec=LiberTEM %u
 Categories=Science;
 StartupNotify=true
