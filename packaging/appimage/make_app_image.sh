@@ -27,7 +27,7 @@ cat > ./AppRun <<\EOF
 #!/bin/sh
 HERE=$(dirname "$(readlink -f "${0}")")
 export PATH="${HERE}"/usr/bin:$PATH
-libertem-server "$@"
+python "$HERE/usr/bin/libertem-server" "$@"
 EOF
 
 chmod a+x ./AppRun
