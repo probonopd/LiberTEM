@@ -4,7 +4,7 @@ sudo: require
 dist: trusty
 
 script:
-  - packaging/appimage/make_app_image.sh
+  - bash -ex packaging/appimage/make_app_image.sh
   - ls -lh
 
 after_success:
