@@ -27,7 +27,7 @@ cd .. || exit 1
 
 cp "${BASE_DIR}/corporatedesign/logo/LiberTEM logo icon-512.png" ./libertem-icon-512.png
 
-cat > ./AppRun <<EOF
+cat > ./AppRun <<\EOF
 #!/bin/sh
 HERE=$(dirname $(readlink -f "${0}"))
 export PATH="${HERE}"/conda/bin:$PATH
