@@ -8,7 +8,7 @@ MC_NAME=Miniconda3-latest-Linux-x86_64.sh
 cd LiberTEM.AppImage/ || exit 1
 
 cd libertem.AppDir || exit 1
-HERE=$(dirname $(readlink -f "${0}"))
+HERE=$(dirname "$(readlink -f "${0}")")
 
 bash ../../$MC_NAME -b -p ./conda || exit 1
 PATH="${HERE}"/conda/bin:$PATH
