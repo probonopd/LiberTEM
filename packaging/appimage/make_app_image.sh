@@ -14,7 +14,11 @@ bash ../../$MC_NAME -b -p ./conda || exit 1
 PATH="${HERE}"/conda/bin:$PATH
 # conda config --add channels conda-forge
 conda create -n libertem python=3.6 -y || exit 1
-# FIXME: install specific version (for example from pypi, or continuous build, ...)
+# FIXME: install specific version (for example from pypi, or continuous build, ...)n s
+
+# Build wheel
+python "$BASE_DIR"/setup.py xbdist_wheel
+
 pip install "$BASE_DIR"/dist/*.whl || exit 1
 
 rm -rf ./conda/pkgs/
